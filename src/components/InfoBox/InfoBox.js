@@ -5,7 +5,7 @@ class InfoBox extends Component {
   render() {
     return (
       <div className='info_box'>
-        Color : {this.props.color} - Size: {this.props.size}
+        Color : {this.props.color} - Size: {this.props.fontSize}px
       </div>
     );
   }

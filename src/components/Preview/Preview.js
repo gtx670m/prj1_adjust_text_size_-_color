@@ -4,7 +4,13 @@ import './Preview.scss';
 class Preview extends Component {
   showColor = (color) => {
     return {
-      color: color
+      color: color,
+      borderColor: color
+    }
+  }
+  showFontSize = (fontSize) => {
+    return {
+      fontSize: fontSize
     }
   }
   render() {
@@ -12,6 +18,7 @@ class Preview extends Component {
     return (
       <div className="preview_box"
         style={this.showColor(this.props.color)}>
+        {/* , this.showFontSize(this.props.fontSize) */}
         Nội dung cần điều chỉnh màu sắc và kích thước
       </div>
     );

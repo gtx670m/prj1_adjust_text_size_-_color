@@ -17,24 +17,36 @@ class App extends Component {
       color: params
     });
   }
+  onChangeSize = (params) => {
+    if(this.state.fontSize + params >= 10 && this.state.fontSize + params <= 38) {
+      this.setState({
+        fontSize: this.state.fontSize + params
+      });
+    }
+  }
   render() {
     return (
       <div className="container">
         <div className="row">
           <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <ColorPicker color={this.state.color} onReceiveColor={this.onSetColor} />
+            <ColorPicker 
+              color={this.state.color} 
+              onReceiveColor={this.onSetColor}/>
           </div>
-
+          
           <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <SizeBox />
+            <SizeBox 
+              fontSize={this.state.fontSize} 
+              onReceiveNumber={this.onChangeSize}/>
           </div>
+          
         </div>
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <InfoBox color={this.state.color} />
+            <InfoBox color={this.state.color} fontSize={this.state.fontSize}/>
           </div>
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <Preview color={this.state.color}/>
+            <Preview color={this.state.color} fontSize={this.state.fontSize}/>
           </div>
         </div>
       </div>
