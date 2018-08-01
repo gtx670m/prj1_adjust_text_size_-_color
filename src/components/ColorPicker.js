@@ -1,33 +1,31 @@
 import React, { Component } from 'react';
-import './ColorPicker.scss';
 
 class ColorPicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      colors: ['red', 'green', 'blue', '#56ccb1']
-    };
+      colors: ['red', 'green', 'blue', 'black']
+    }
   }
-  showColor = (color) => {
+  spanColor = (color) => {
     return {
       backgroundColor: color
     }
   }
-  setActiveColor = (color) => {
+  pickColor = (color) => {
     this.props.onReceiveColor(color);
   }
   render() {
     var elmColors = this.state.colors.map((color, index) => {
       return <span
-        key={index}
-        style={this.showColor(color)}
+        key={index} style={this.spanColor(color)}
         className={this.props.color === color ? 'active' : ''}
-        onClick={() => this.setActiveColor(color)}>
-      </span>
-    });
+        onClick={() => this.pickColor(color)}
+      ></span>
+    })
     return (
       <div className="panel panel-primary">
-        <div className="panel-heading">Color Picker</div>
+        <div className="panel-heading">Color: {this.props.color}</div>
         <div className="panel-body">
           {elmColors}
         </div>

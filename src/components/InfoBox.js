@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './InfoBox.scss';
 
 class InfoBox extends Component {
   render() {
